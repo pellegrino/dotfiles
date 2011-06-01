@@ -13,3 +13,4 @@ add-alias ()
 alias gs='git status'
 alias gc='git commit'
 alias gb='git branch -a -v'
+alias ls='ls -la --color=auto'
