@@ -1,13 +1,21 @@
 desc "Installs vim to the current machine"
 namespace "install" do
   task :vim do
-    `ln -nls ~/dotfiles/vim/vim .vim`
-    `ln -nls ~/dotfiles/vim/vimrc .vimrc`
-    `ln -nls ~/dotfiles/vim/gvimrc .gvimrc`
+    `ln -nfs ~/dotfiles/vim/vim .vim`
+    `ln -nfs ~/dotfiles/vim/vimrc .vimrc`
+    `ln -nfs ~/dotfiles/vim/gvimrc .gvimrc`
   end 
   task :config_files  do
-    `ln -nls ~/dotfiles/bashrc .bashrc` 
-    `ln -nls ~/dotfiles/bash_aliases .bash_aliases` 
+    puts "Installing configuration files"	
+    home = File.expand_path('~') 
+
+    Dir['*'].each do |file|
+      next if file =~ /Rakefile/ or File.directory? file 
+      target = File.join(home, ".#{file}")
+      command = "ln -nfs #{File.expand_path file} #{target}"
+      puts command 
+      `ln -nfs #{File.expand_path file} #{target}`
+    end 
   end 
 end 
 
