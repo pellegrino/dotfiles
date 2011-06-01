@@ -7,6 +7,7 @@ namespace "install" do
   end 
   task :config_files  do
     `ln -nls ~/dotfiles/bashrc .bashrc` 
+    `ln -nls ~/dotfiles/bash_aliases .bash_aliases` 
   end 
 end 
 
