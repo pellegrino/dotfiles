@@ -1,9 +1,9 @@
 desc "Installs vim to the current machine"
 namespace "install" do
   task :vim do
-    `ln -nfs ~/dotfiles/vim/vim .vim`
-    `ln -nfs ~/dotfiles/vim/vimrc .vimrc`
-    `ln -nfs ~/dotfiles/vim/gvimrc .gvimrc`
+    `ln -nfs ~/dotfiles/vim/vim ~/.vim`
+    `ln -nfs ~/dotfiles/vim/vimrc ~/.vimrc`
+    `ln -nfs ~/dotfiles/vim/gvimrc ~/.gvimrc`
   end 
   task :config_files  do
     puts "Installing configuration files"	

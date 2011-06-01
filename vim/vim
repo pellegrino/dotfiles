@@ -1,0 +1,17 @@
+syntax   enable               " Turn on syntax highlighting 
+filetype plugin indent on     " Turn on file type detection
+
+
+set	 showmode  	      "Display the mode im in 
+set 	 showcmd	      "Display incomplete commands 
+set      hidden               "Handle multiple buffers better 
+set      ignorecase           "Case-insensitive searching 
+set      smartcase            "But case sensitive if expression contains capital letter 
+
+set	 number  	      "Show line numbers 
+set 	 ruler     	      "Show cursor position 
+set      visualbell 	      "Stop beeping when you are being noob at vim 
+set	 wrap 		      "Turn on line wrapping
+set 	 nobackup 	      "Don make a backup before overwritting a file
+set 	 nowritebackup	      " 
+set      directory=$HOME/.vim/tmp 
