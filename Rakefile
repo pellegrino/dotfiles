@@ -5,5 +5,9 @@ namespace "install" do
     `ln -nls ~/dotfiles/vim/vimrc .vimrc`
     `ln -nls ~/dotfiles/vim/gvimrc .gvimrc`
   end 
+  task :config_files  do
+    `ln -nls ~/dotfiles/bashrc .bashrc` 
+  end 
 end 
+
 
