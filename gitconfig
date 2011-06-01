@@ -1,0 +1,17 @@
+[user]
+	email = vitorp@gmail.com
+	name  = Vitor Pellgrino
+
+
+[apply]
+	whitespace = nowarn
+
+[merge]
+	summary    = true
+
+[core]
+	excludesfile = ~/.gitignore
+
+[github]
+	user = pellegrino
+
