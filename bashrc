@@ -18,4 +18,6 @@ if [ -f ~/bin/bashmarks ] ; then
     . ~/bin/bashmarks
 fi
 
+# RVM and Git information at terminal
+export PS1='\w `~/.rvm/bin/rvm-prompt i v` `git branch 2> /dev/null | grep -e ^* | sed -E  s/^\\\\\*\ \(.+\)$/\(\\\\\1\)\ /`\[\033[37m\]$\[\033[00m\] '
 

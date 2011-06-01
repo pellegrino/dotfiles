@@ -6,10 +6,11 @@ Given that this is a new blankslate machine, some steps are required to make it 
 
 ### Ubuntu
 TODO: Point directions to install each one of these dependencies 
-* Install git
-* Install ruby 
-* Install rvm
-* Install vim 
+
+ * Install git
+ * Install ruby 
+ * Install rvm
+ * Install vim 
 
 ### Mac OSX
 TODO: Complete this
