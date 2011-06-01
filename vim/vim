@@ -11,7 +11,7 @@ set	 number  	      "Show line numbers
 set 	 ruler     	      "Show cursor position 
 set      visualbell 	      "Stop beeping when you are being noob at vim 
 set	 wrap 		      "Turn on line wrapping
-set 	 nobackup 	      "Don make a backup before overwritting a file
-set 	 nowritebackup	      " 
-set      directory=$HOME/.vim/tmp 
+set      nowritebackup        " 
+set      nobackup             "Don make a backup before overwritting a file
+set      directory=$HOME/.vimswap/tmp 
 set      wildmode=list:longest "TAB auto-completion for file paths 
