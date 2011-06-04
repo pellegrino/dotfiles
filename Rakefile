@@ -14,6 +14,7 @@ namespace "install" do
     `ln -nfs ~/dotfiles/vim/vim ~/.vim`
     `ln -nfs ~/dotfiles/vim/vimrc ~/.vimrc`
     `ln -nfs ~/dotfiles/vim/gvimrc ~/.gvimrc`
+    `ln -nfs ~/dotfiles/vim ~/.vim`
   end 
   task :config_files  do
     puts "Installing configuration files"	

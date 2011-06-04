@@ -14,4 +14,11 @@ set	 wrap 		      "Turn on line wrapping
 set      nowritebackup        " 
 set      nobackup             "Don make a backup before overwritting a file
 set      directory=$HOME/.vimswap/tmp 
-set      wildmode=list:longest "TAB auto-completion for file paths 
+
+"Pathogen.vim"
+
+filetype off 
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
+let g:ackprg="ack -H --nocolor --nogroup --column"
+
