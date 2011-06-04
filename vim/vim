@@ -1,3 +1,5 @@
+set      nocompatible 
+
 syntax   enable               " Turn on syntax highlighting 
 filetype plugin indent on     " Turn on file type detection
 
@@ -16,9 +18,17 @@ set      nobackup             "Don make a backup before overwritting a file
 set      directory=$HOME/.vimswap/tmp 
 
 "Pathogen.vim"
+silent! call pathogen#runtime_append_all_bundles()
 
-filetype off 
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
 let g:ackprg="ack -H --nocolor --nogroup --column"
 
+set tabstop=2                    " Global tab width.
+set shiftwidth=2                 " And again, related.
+
+set laststatus=2                  " Show the status line all the time
+" Automatic fold settings for specific files. Uncomment to use.
+autocmd FileType ruby setlocal foldmethod=syntax
+autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
+"
+" " For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
+autocmd BufNewFile,BufRead *_spec.rb compiler rspec
