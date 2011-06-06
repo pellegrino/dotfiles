@@ -1,6 +1,5 @@
 # Adds an alias to the current shell and to this file.
 # Borrowed from Mislav (http://github.com/mislav/dotfiles/tree/master/bash_aliases)
-
 add-alias ()
 {
    local name=$1 value=$2
@@ -13,4 +12,4 @@ add-alias ()
 alias gs='git status'
 alias gc='git commit'
 alias gb='git branch -a -v'
-alias ls='ls -la --color=auto'
+alias ls='ls -la' 
