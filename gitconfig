@@ -1,8 +1,6 @@
 [user]
 	email = vitorp@gmail.com
 	name  = Vitor Pellgrino
-[http]
-	proxy = http://zclg:g10cK222@proxyad.br-petrobras.com.br:9090/
 
 [apply]
 	whitespace = nowarn
