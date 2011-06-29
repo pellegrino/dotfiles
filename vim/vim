@@ -24,7 +24,7 @@ let g:ackprg="ack -H --nocolor --nogroup --column"
 
 set tabstop=2                    " Global tab width.
 set shiftwidth=2                 " And again, related.
-
+set grepprg=ack                  " Using ack instead of grep 
 set laststatus=2                  " Show the status line all the time
 " Automatic fold settings for specific files. Uncomment to use.
 " autocmd FileType ruby setlocal 

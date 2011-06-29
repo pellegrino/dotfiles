@@ -14,3 +14,7 @@ alias gc='git commit'
 alias gb='git branch -a -v'
 alias ls='ls -la' 
 alias bi='bundle install'
+alias gl='git log'
+alias gco='git checkout master'
+alias bu='bundle update
+'
