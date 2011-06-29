@@ -1,4 +1,4 @@
-task :install => [ "install:config_files", "install:vim", "install:bin", "install:command-t" ] 
+task :install => [ "install:config_files", "install:vim", "install:bin" ] 
 
 desc "Installs vim to the current machine"
 namespace "install" do
@@ -22,10 +22,6 @@ namespace "install" do
 
 		`git submodule update --init` # vim plugins used as submodules 
   end 
-	task "command-t" do 
-		puts "Installing command-t native extension" 
-		`cd ~/dotfiles/vim/bundle/command-t/ruby/command-t ; ruby extconf.rb ; make` 
-	end
   task :config_files  do
     puts "Installing configuration files"	
     home = File.expand_path('~') 
