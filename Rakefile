@@ -1,3 +1,5 @@
+task :install => [ "install:config_files", "install:vim", "install:bin" ] 
+
 desc "Installs vim to the current machine"
 namespace "install" do
   task :bin do
@@ -17,6 +19,8 @@ namespace "install" do
     `ln -nfs ~/dotfiles/vim/vimrc ~/.vimrc`
     `ln -nfs ~/dotfiles/vim/gvimrc ~/.gvimrc`
     `ln -nfs ~/dotfiles/vim ~/.vim`
+
+		`git submodule update --init` # vim plugins used as submodules 
   end 
   task :config_files  do
     puts "Installing configuration files"	
