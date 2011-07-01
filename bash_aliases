@@ -18,3 +18,4 @@ alias gl='git log'
 alias gco='git checkout master'
 alias bu='bundle update
 '
+alias be='bundle exec'

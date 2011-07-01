@@ -4,18 +4,18 @@ syntax   enable               " Turn on syntax highlighting
 filetype plugin indent on     " Turn on file type detection
 
 set	 showmode  	      "Display the mode im in 
-set 	 showcmd	      "Display incomplete commands 
-set      hidden               "Handle multiple buffers better 
-set      ignorecase           "Case-insensitive searching 
-set      smartcase            "But case sensitive if expression contains capital letter 
+set  showcmd	      "Display incomplete commands 
+set  hidden               "Handle multiple buffers better 
+set  ignorecase           "Case-insensitive searching 
+set  smartcase            "But case sensitive if expression contains capital letter 
 
 set	 number  	      "Show line numbers 
-set 	 ruler     	      "Show cursor position 
-set      visualbell 	      "Stop beeping when you are being noob at vim 
+set  ruler     	      "Show cursor position 
+set  visualbell 	      "Stop beeping when you are being noob at vim 
 set	 wrap 		      "Turn on line wrapping
-set      nowritebackup        " 
-set      nobackup             "Don make a backup before overwritting a file
-set      directory=$HOME/.vimswap/tmp 
+set  nowritebackup        " 
+set  nobackup             "Don make a backup before overwritting a file
+set  directory=$HOME/.vimswap/tmp 
 
 "Pathogen.vim"
 silent! call pathogen#runtime_append_all_bundles()
@@ -38,3 +38,7 @@ autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
 nmap <leader>ff :FufFile **/<CR>
 nmap <leader>fb :FufBuffer<CR>
+
+"" Clipboard integration
+set clipboard=unnamed
+ 
