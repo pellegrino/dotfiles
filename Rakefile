@@ -2,7 +2,11 @@ task :install => [ "install:config_files", "install:vim", "install:bin" ]
 
 desc "Installs vim to the current machine"
 namespace "install" do
-	task :bin do
+	task :prepare do
+		`mkdir -p ~/bin` 
+		`mkdir -p ~/.tmp` 
+	end	
+	task :bin => "install:prepare" do
 		puts "Installing configuration files"	
 		home = File.expand_path('~') 
 		Dir['bin/*'].each do |file|
