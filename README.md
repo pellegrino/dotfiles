@@ -13,9 +13,13 @@ TODO: Point directions to install each one of these dependencies
  * Install vim 
 
 ### Mac OSX
-TODO: Complete this
+ * Install homebrew
+ * Install XCode 
+ * Install RVM
+ * Install Git (brew install git) 
 
 
 ### Windows
-<rant>Install a decent operation system </rant> Sorry i don't use windows for quite a long time by now, so i can't give any pointers. You're by yourself.
+(rant)Install a decent operation system (</rant) 
+Sorry i don't use windows for quite a long now, so i can't give any pointers. You're by yourself.
 
