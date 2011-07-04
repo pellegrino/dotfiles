@@ -15,8 +15,8 @@ TODO: Point directions to install each one of these dependencies
 ### Mac OSX
  * Install homebrew
  * Install XCode 
- * Install RVM
  * Install Git (brew install git bash-completion) 
+ * Install RVM
 
 ### Windows
 (rant)Install a decent operation system (</rant) 
