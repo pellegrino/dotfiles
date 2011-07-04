@@ -19,3 +19,5 @@ alias gco='git checkout master'
 alias bu='bundle update
 '
 alias be='bundle exec'
+alias gss='git submodule status'
+alias gsa='git submodule add'
