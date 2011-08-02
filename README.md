@@ -8,6 +8,7 @@ Given that this is a new blankslate machine, some steps are required to make it 
 TODO: Point directions to install each one of these dependencies 
 
  * Install git
+ * Install curl (for rvm)
  * Install ruby 
  * Install rvm
  * Install vim 
