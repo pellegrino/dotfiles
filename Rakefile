@@ -28,6 +28,9 @@ namespace "install" do
     puts "Fetching vim plugins" 	
     `git submodule update --init` # vim plugins used as submodules 
   end 
+  task :rvm do
+   `bash < <(curl -s https://rvm.beginrescueend.com/install/rvm)` 
+  end 
   task :config_files  do
     puts "Installing configuration files"	
     home = File.expand_path('~') 
