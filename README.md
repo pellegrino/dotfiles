@@ -4,13 +4,16 @@ Those are my configurations.
 ## How to install in a new machine
 Given that this is a new blankslate machine, some steps are required to make it into a fully operational dev workstation to my likings :P 
 
+## Pre-requisites
+  * Rake
+  * zsh (for instal:zsh task) 
+
 ### Ubuntu
 TODO: Point directions to install each one of these dependencies 
 
  * Install git
  * Install curl (for rvm)
  * Install ruby 
- * Install rvm
  * Install vim 
 
 ### Mac OSX
@@ -25,4 +28,5 @@ Sorry i don't use windows for quite a long now, so i can't give any pointers. Yo
 
 ## Additional rake tasks 
 
-  * install:zsh (depends on zsh being installed) 
+  * install:zsh 
+  * install:rvm 

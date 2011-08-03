@@ -1,4 +1,4 @@
-task :install => [ "install:config_files", "install:vim", "install:vim_plugins", "install:bin" , "install:rvm"] 
+task :install => [ "install:config_files", "install:vim", "install:vim_plugins", "install:bin"]
 
 desc "Installs vim to the current machine"
 namespace "install" do
