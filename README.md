@@ -20,6 +20,9 @@ TODO: Point directions to install each one of these dependencies
  * Install RVM
 
 ### Windows
-(rant)Install a decent operation system (</rant) 
+(rant)Install a decent operation system (/rant)
 Sorry i don't use windows for quite a long now, so i can't give any pointers. You're by yourself.
 
+## Additional rake tasks 
+
+  * install:zsh (depends on zsh being installed) 

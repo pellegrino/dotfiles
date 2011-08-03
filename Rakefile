@@ -1,4 +1,4 @@
-task :install => [ "install:config_files", "install:vim", "install:vim_plugins", "install:bin" ] 
+task :install => [ "install:config_files", "install:vim", "install:vim_plugins", "install:bin" , "install:rvm"] 
 
 desc "Installs vim to the current machine"
 namespace "install" do
@@ -16,6 +16,10 @@ namespace "install" do
         `ln -nfs #{File.expand_path file} #{target}`
     end 
   end 	
+  task :zsh do
+    puts "Installing oh-my-zsh"
+    `wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh`
+  end 
   task :vim do
     # Creating vim swap files directory 
     `mkdir -p ~/.vimswap/tmp` 
