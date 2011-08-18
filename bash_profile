@@ -5,3 +5,8 @@ fi
 if test -s "/home/pellegrino/.bashrc" ; then . "/home/pellegrino/.bashrc" ; fi
 export projects_path="$HOME/projects"
 [[ -s "/usr/local/bdsm/modules/bash/project/interactive" ]] && source "/usr/local/bdsm/modules/bash/project/interactive"
+
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+  . `brew --prefix`/etc/bash_completion
+fi
+

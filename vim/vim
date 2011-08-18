@@ -1,7 +1,22 @@
 set      nocompatible 
-
+filetype on
+filetype off
+set backspace=indent,eol,start
+set history=1000
+set incsearch   "find the next match as we type the search
+set hlsearch    "hilight searches by default
+set showbreak=...
+set wrap linebreak nolist 
 syntax   enable               " Turn on syntax highlighting 
-filetype plugin indent on     " Turn on file type detection
+syntax   on 
+filetype plugin on     " Turn on file type detection
+filetype indent on 
+
+"indent settings
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set autoindent
 
 set	 showmode  	      "Display the mode im in 
 set  showcmd	      "Display incomplete commands 
@@ -41,4 +56,4 @@ nmap <leader>fb :FufBuffer<CR>
 
 "" Clipboard integration
 set clipboard=unnamed
- 
+

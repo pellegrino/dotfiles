@@ -1,6 +1,6 @@
 [user]
 	email = vitorp@gmail.com
-	name = Vitor Pellgrino
+	name = Vitor Pellegrino
 
 [apply]
 	whitespace = nowarn
@@ -10,7 +10,11 @@
 
 [core]
 	excludesfile = ~/.gitignore
+	editor = /usr/bin/vim
 
 [github]
 	user = pellegrino
 
+[pivotal]
+	api-token = 341a419d6a19de4ac0586fbb9525c72e
+	full-name = Vitor Pellegrino
