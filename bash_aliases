@@ -26,3 +26,6 @@ alias gca='git commit -a'
 alias gcb='git checkout -b'
 alias js='jessie spec'
 alias rspec='be rspec spec'
+alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
+alias rdm='be rake db:migrate'
+alias test='be rake test'
