@@ -31,6 +31,13 @@ namespace "install" do
   task :rvm do
    `bash < <(curl -s https://rvm.beginrescueend.com/install/rvm)` 
   end 
+  task :irssi do
+    home = File.expand_path('~') 
+    irssi_directory = File.expand_path("irssi")
+    command = "ln -nfs #{irssi_directory} #{home}/.irssi"
+    puts command 
+    `#{command}`
+  end 
   task :config_files  do
     puts "Installing configuration files"	
     home = File.expand_path('~') 

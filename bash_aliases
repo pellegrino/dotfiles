@@ -30,3 +30,4 @@ alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 alias rdm='be rake db:migrate'
 alias t='be rake test'
 alias gcr='git checkout RELEASE'
+alias install='sudo aptitude install'
