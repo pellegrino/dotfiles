@@ -177,6 +177,7 @@ settings = {
     actlist_sort = "refnum";
   };
   "fe-common/core" = {
+    autolog = "on";
     autocreate_own_query = "yes";
     use_status_window = "no";
     use_msgs_window = "no";
