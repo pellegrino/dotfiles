@@ -1,3 +1,8 @@
+[color]
+  status  = auto
+  ui      = auto
+  branch  = auto
+
 [user]
 	email = vitorp@gmail.com
 	name = Vitor Pellegrino
