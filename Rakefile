@@ -7,7 +7,7 @@ namespace "install" do
     `mkdir -p ~/.tmp` 
   end	
   task :bin => "install:prepare" do
-    puts "Installing configuration files"	
+    puts "Installing binaries files"	
     home = File.expand_path('~') 
     Dir['bin/*'].each do |file|
       target = File.join(home, "#{file}")
@@ -17,6 +17,7 @@ namespace "install" do
     end 
   end 	
   task :vim do
+    puts "installing  plugins"
     # Creating vim swap files directory 
     `mkdir -p ~/.vimswap/tmp` 
     `ln -nfs ~/dotfiles/vim/vim ~/.vim`
