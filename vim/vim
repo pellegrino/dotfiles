@@ -57,3 +57,6 @@ nmap <leader>fb :FufBuffer<CR>
 "" Clipboard integration
 set clipboard=unnamed
 
+" "Coffeescript two space indentation
+au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+
