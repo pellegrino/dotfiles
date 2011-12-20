@@ -1,68 +1,66 @@
-# todo: grap topic changes
+##
+## Put me in ~/.irssi/scripts, and then execute the following in irssi:
+##
+##       /load perl
+##       /script load notify
+##
 
 use strict;
-use vars qw($VERSION %IRSSI);
-
 use Irssi;
-$VERSION = '0.0.3';
+use vars qw($VERSION %IRSSI);
+use IO::Socket;
+
+$VERSION = "0.2";
 %IRSSI = (
-	authors     => 'Thorsten Leemhuis',
-	contact     => 'fedora@leemhuis.info',
-	name        => 'fnotify',
-	description => 'Write a notification to a file that shows who is talking to you in which channel.',
-	url         => 'http://www.leemhuis.info/files/fnotify/',
-	license     => 'GNU General Public License',
-	changed     => '$Date: 2007-01-13 12:00:00 +0100 (Sat, 13 Jan 2007) $'
+    authors     => 'Bernard `Guyzmo` Pratz, Luke Macken, Paul W. Frields',
+    contact     => 'guyzmo AT m0g DOT net, lewk@csh.rit.edu, stickster@gmail.com',
+    name        => 'notify.pl',
+    description => 'Use libnotify over SSH to alert user for hilighted messages',
+    license     => 'GNU General Public License',
+    url         => 'http://github.com/guyzmo/irssi-over-ssh-notifications',
 );
 
-#--------------------------------------------------------------------
-# In parts based on knotify.pl 0.1.1 by Hugo Haas
-# http://larve.net/people/hugo/2005/01/knotify.pl
-# which is based on osd.pl 0.3.3 by Jeroen Coekaerts, Koenraad Heijlen
-# http://www.irssi.org/scripts/scripts/osd.pl
-#
-# Other parts based on notify.pl from Luke Macken
-# http://fedora.feedjack.org/user/918/
-#
-#--------------------------------------------------------------------
+sub notify {
+    my ($server, $summary, $message) = @_;
 
-#--------------------------------------------------------------------
-# Private message parsing
-#--------------------------------------------------------------------
-
-sub priv_msg {
-	my ($server,$msg,$nick,$address,$target) = @_;
-	filewrite($nick." " .$msg );
+    my $remote = IO::Socket::INET->new(
+                        Proto    => "tcp",
+                        PeerAddr => "localhost",
+                        PeerPort => "4222",
+                    )
+                  or die "cannot connect to 4222 port at localhost";
+    # ... write notifications to the socket ... #
+	print $remote $summary . ": '" . $message . "'\n";
 }
-
-#--------------------------------------------------------------------
-# Printing hilight's
-#--------------------------------------------------------------------
-
-sub hilight {
+ 
+sub print_text_notify {
     my ($dest, $text, $stripped) = @_;
-    if ($dest->{level} & MSGLEVEL_HILIGHT) {
-	filewrite($dest->{target}. " " .$stripped );
-    }
+    my $server = $dest->{server};
+
+    return if (!$server || !($dest->{level} & MSGLEVEL_HILIGHT));
+    my $sender = $stripped;
+    $sender =~ s/^\<.([^\>]+)\>.+/\1/ ;
+    my $summary = $sender . "@" . $dest->{server}->{tag} . $dest->{target};
+
+    $stripped =~ s/^\<.[^\>]+\>.// ;
+    notify($server, $summary, $stripped);
 }
 
-#--------------------------------------------------------------------
-# The actual printing
-#--------------------------------------------------------------------
+sub message_private_notify {
+    my ($server, $msg, $nick, $address) = @_;
 
-sub filewrite {
-	my ($text) = @_;
-	# FIXME: there is probably a better way to get the irssi-dir...
-        open(FILE,">>$ENV{HOME}/.irssi/fnotify");
-	print FILE $text . "\n";
-        close (FILE);
+    return if (!$server);
+    notify($server, "PM from ".$nick, $msg);
 }
 
-#--------------------------------------------------------------------
-# Irssi::signal_add_last / Irssi::command_bind
-#--------------------------------------------------------------------
+sub dcc_request_notify {
+    my ($dcc, $sendaddr) = @_;
+    my $server = $dcc->{server};
 
-Irssi::signal_add_last("message private", "priv_msg");
-Irssi::signal_add_last("print text", "hilight");
+    return if (!$dcc);
+    notify($server, "DCC ".$dcc->{type}." request", $dcc->{nick});
+}
 
-#- end
+Irssi::signal_add('print text', 'print_text_notify');
+Irssi::signal_add('message private', 'message_private_notify');
+Irssi::signal_add('dcc request', 'dcc_request_notify');

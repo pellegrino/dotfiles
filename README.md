@@ -15,6 +15,8 @@ TODO: Point directions to install each one of these dependencies
  * Install ruby 
  * Install vim 
 
+#### Irssi
+ * Create the service daemon for listening to notifications
 ### Mac OSX
  * Install homebrew
  * Install XCode 
@@ -29,3 +31,5 @@ Sorry i don't use windows for quite a long now, so i can't give any pointers. Yo
 ## Additional rake tasks 
 
   * install:rvm 
+
+
