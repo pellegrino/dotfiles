@@ -8,7 +8,7 @@ else
     port=22
 fi
 
-host="fedora"
+host="vitor@git.vip2web.com"
 notify="$HOME/scripts/irssi-rnotify/notify-remote"
 
 set -e
