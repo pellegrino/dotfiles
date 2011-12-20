@@ -9,7 +9,7 @@ else
 fi
 
 host="vitor@git.vip2web.com"
-notify="$HOME/scripts/irssi-rnotify/notify-remote"
+notify="$HOME/bin/notify-remote"
 
 set -e
 
