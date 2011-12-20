@@ -1,1 +1,0 @@
-../notifier-minivan.pl

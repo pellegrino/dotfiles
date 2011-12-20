@@ -1,77 +1,68 @@
-##
-## Put me in ~/.irssi/scripts, and then execute the following in irssi:
-##
-##       /load perl
-##       /script load notify
-##
+# todo: grap topic changes
 
 use strict;
-use Irssi;
 use vars qw($VERSION %IRSSI);
-use HTML::Entities;
 
-$VERSION = "0.01";
+use Irssi;
+$VERSION = '0.0.3';
 %IRSSI = (
-    authors     => 'Luke Macken, Paul W. Frields',
-    contact     => 'lewk@csh.rit.edu, stickster@gmail.com',
-    name        => 'notify.pl',
-    description => 'Use libnotify to alert user to hilighted messages',
-    license     => 'GNU General Public License',
-    url         => 'http://lewk.org/log/code/irssi-notify',
+	authors     => 'Thorsten Leemhuis',
+	contact     => 'fedora@leemhuis.info',
+	name        => 'fnotify',
+	description => 'Write a notification to a file that shows who is talking to you in which channel.',
+	url         => 'http://www.leemhuis.info/files/fnotify/',
+	license     => 'GNU General Public License',
+	changed     => '$Date: 2007-01-13 12:00:00 +0100 (Sat, 13 Jan 2007) $'
 );
 
-Irssi::settings_add_str('notify', 'notify_icon', 'gtk-dialog-info');
-Irssi::settings_add_str('notify', 'notify_time', '5000');
+#--------------------------------------------------------------------
+# In parts based on knotify.pl 0.1.1 by Hugo Haas
+# http://larve.net/people/hugo/2005/01/knotify.pl
+# which is based on osd.pl 0.3.3 by Jeroen Coekaerts, Koenraad Heijlen
+# http://www.irssi.org/scripts/scripts/osd.pl
+#
+# Other parts based on notify.pl from Luke Macken
+# http://fedora.feedjack.org/user/918/
+#
+#--------------------------------------------------------------------
 
-sub sanitize {
-  my ($text) = @_;
-  encode_entities($text);
-  return $text;
+#--------------------------------------------------------------------
+# Private message parsing
+#--------------------------------------------------------------------
+
+sub priv_msg {
+	my ($server,$msg,$nick,$address,$target) = @_;
+	filewrite($nick." " .$msg );
 }
 
-sub notify {
-    my ($server, $summary, $message) = @_;
+#--------------------------------------------------------------------
+# Printing hilight's
+#--------------------------------------------------------------------
 
-    # Make the message entity-safe
-    $summary = sanitize($summary);
-    $message = sanitize($message);
-
-    my $cmd = "EXEC - notify-send" .
-	" -i " . Irssi::settings_get_str('notify_icon') .
-	" -t " . Irssi::settings_get_str('notify_time') .
-	" -- '" . $summary . "'" .
-	" '" . $message . "'";
-
-    $server->command($cmd);
-}
- 
-sub print_text_notify {
+sub hilight {
     my ($dest, $text, $stripped) = @_;
-    my $server = $dest->{server};
-
-    return if (!$server || !($dest->{level} & MSGLEVEL_HILIGHT));
-    my $sender = $stripped;
-    $sender =~ s/^\<.([^\>]+)\>.+/\1/ ;
-    $stripped =~ s/^\<.[^\>]+\>.// ;
-    my $summary = $dest->{target} . ": " . $sender;
-    notify($server, $summary, $stripped);
+    if ($dest->{level} & MSGLEVEL_HILIGHT) {
+	filewrite($dest->{target}. " " .$stripped );
+    }
 }
 
-sub message_private_notify {
-    my ($server, $msg, $nick, $address) = @_;
+#--------------------------------------------------------------------
+# The actual printing
+#--------------------------------------------------------------------
 
-    return if (!$server);
-    notify($server, "Private message from ".$nick, $msg);
+sub filewrite {
+	my ($text) = @_;
+	# FIXME: there is probably a better way to get the irssi-dir...
+        open(FILE,">>$ENV{HOME}/.irssi/fnotify");
+	print FILE $text . "\n";
+        close (FILE);
 }
 
-sub dcc_request_notify {
-    my ($dcc, $sendaddr) = @_;
-    my $server = $dcc->{server};
+#--------------------------------------------------------------------
+# Irssi::signal_add_last / Irssi::command_bind
+#--------------------------------------------------------------------
 
-    return if (!$dcc);
-    notify($server, "DCC ".$dcc->{type}." request", $dcc->{nick});
-}
+Irssi::signal_add_last("message private", "priv_msg");
+Irssi::signal_add_last("print text", "hilight");
 
-Irssi::signal_add('print text', 'print_text_notify');
-Irssi::signal_add('message private', 'message_private_notify');
-Irssi::signal_add('dcc request', 'dcc_request_notify');
+#- end
