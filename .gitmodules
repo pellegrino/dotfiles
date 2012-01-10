@@ -151,3 +151,6 @@
 [submodule "vim/bundle/vim-pastie"]
 	path = vim/bundle/vim-pastie
 	url = https://github.com/tpope/vim-pastie.git
+[submodule "vim/bundle/Gist.vim"]
+	path = vim/bundle/Gist.vim
+	url = https://github.com/vim-scripts/Gist.vim.git
