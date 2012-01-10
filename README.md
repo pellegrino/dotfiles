@@ -17,6 +17,12 @@ TODO: Point directions to install each one of these dependencies
 
 #### Irssi
  * Create the service daemon for listening to notifications
+
+#### Vim GIST 
+
+You have to export in your .bashrc file both variables GITHUB\_USER and GITHUB\_TOKEN.
+Since those are sensitive data, its not a good idea to share this information publicly 
+
 ### Mac OSX
  * Install homebrew
  * Install XCode 
@@ -24,7 +30,6 @@ TODO: Point directions to install each one of these dependencies
  * Install RVM
 
 ### Windows
-(rant)Install a decent operation system (/rant) 
 
 Sorry i don't use windows for quite a long now, so i can't give any pointers. You're by yourself.
 
