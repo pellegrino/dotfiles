@@ -148,3 +148,6 @@
 [submodule "vim/bundle/vimrooter"]
 	path = vim/bundle/vimrooter
 	url = git://github.com/airblade/vim-rooter.git
+[submodule "vim/bundle/vim-pastie"]
+	path = vim/bundle/vim-pastie
+	url = https://github.com/tpope/vim-pastie.git
