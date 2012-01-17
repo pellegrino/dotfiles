@@ -154,3 +154,6 @@
 [submodule "vim/bundle/Gist.vim"]
 	path = vim/bundle/Gist.vim
 	url = https://github.com/vim-scripts/Gist.vim.git
+[submodule "vim/bundle/vim-rvm"]
+	path = vim/bundle/vim-rvm
+	url = git://github.com/tpope/vim-rvm.git
