@@ -160,3 +160,6 @@
 [submodule "vim/bundle/vim-rvm"]
 	path = vim/bundle/vim-rvm
 	url = git://github.com/tpope/vim-rvm.git
+[submodule "vim/bundle/command-t"]
+	path = vim/bundle/command-t
+	url = git://git.wincent.com/command-t.git

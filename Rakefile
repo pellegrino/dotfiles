@@ -1,4 +1,4 @@
-task :install => [ "install:config_files", "install:vim", "install:vim_plugins", "install:bin" ] 
+task :install => [ "install:config_files", "install:vim", "install:bin" ] 
 
 desc "Installs vim to the current machine"
 namespace "install" do
@@ -16,19 +16,32 @@ namespace "install" do
         `ln -nfs #{File.expand_path file} #{target}`
     end 
   end 	
-  task :vim do
-    puts "installing  plugins"
-    # Creating vim swap files directory 
-    `mkdir -p ~/.vimswap/tmp` 
-    `ln -nfs ~/dotfiles/vim/vim ~/.vim`
-    `ln -nfs ~/dotfiles/vim/vimrc ~/.vimrc`
-    `ln -nfs ~/dotfiles/vim/gvimrc ~/.gvimrc`
-    `ln -nfs ~/dotfiles/vim ~/.vim`
+
+  namespace "vim" do
+    task "symlink" do
+      puts "installing vim"
+      # Creating vim swap files directory 
+      `mkdir -p ~/.vimswap/tmp` 
+      `ln -nfs ~/dotfiles/vim/vim ~/.vim`
+      `ln -nfs ~/dotfiles/vim/vimrc ~/.vimrc`
+      `ln -nfs ~/dotfiles/vim/gvimrc ~/.gvimrc`
+      `ln -nfs ~/dotfiles/vim ~/.vim`
+    end 
+
+    task "plugins" do
+      puts "Fetching vim plugins" 	
+      `git submodule update --init` # vim plugins used as submodules 
+    end 
+
+    task "commandt" => "plugins" do
+      puts "Attempting to build command-t" 
+      `cd ~/dotfiles/vim/bundle/command-t; rake make`
+    end 
+
   end 
-  task "vim_plugins" do
-    puts "Fetching vim plugins" 	
-    `git submodule update --init` # vim plugins used as submodules 
-  end 
+  # Install vim  
+  task "vim" => ["vim:symlink", "vim:plugins", "vim:commandt"]
+
   task :rvm do
    `bash < <(curl -s https://rvm.beginrescueend.com/install/rvm)` 
   end 
