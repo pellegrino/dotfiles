@@ -53,6 +53,8 @@ autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
 nmap <leader>ff :FufFile **/<CR>
 nmap <leader>fb :FufBuffer<CR>
+" " rspec 
+nmap <leader>r :w! !rspec spec/<CR>
 
 "" Clipboard integration
 set clipboard=unnamed
