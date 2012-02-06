@@ -5,7 +5,8 @@ Those are my configurations.
 Given that this is a new blankslate machine, some steps are required to make it into a fully operational dev workstation to my likings :P 
 
 ## Pre-requisites
-  * Rake
+  * Rake (for the installer task)
+  * Zsh
 
 ### Ubuntu
 TODO: Point directions to install each one of these dependencies 
@@ -14,6 +15,7 @@ TODO: Point directions to install each one of these dependencies
  * Install curl (for rvm)
  * Install ruby 
  * Install vim 
+ * Install zsh 
 
 #### Irssi
  * Create the service daemon for listening to notifications
@@ -32,9 +34,4 @@ Since those are sensitive data, its not a good idea to share this information pu
 ### Windows
 
 Sorry i don't use windows for quite a long now, so i can't give any pointers. You're by yourself.
-
-## Additional rake tasks 
-
-  * install:rvm 
-
 

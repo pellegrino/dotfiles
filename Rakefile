@@ -1,4 +1,4 @@
-task :install => [ "install:config_files", "install:vim", "install:bin" ] 
+task :install => [ "install:zsh", "install:config_files", "install:vim", "install:bin" ] 
 
 desc "Installs vim to the current machine"
 namespace "install" do
@@ -61,6 +61,14 @@ namespace "install" do
       `ln -nfs #{File.expand_path file} #{target}`
     end
 
+  end 
+  desc "Installs zsh with custom scripts at zsh-extra"
+  task :zsh do
+    puts "Installing zsh" 
+    home = File.expand_path('~') 
+    zsh_directory = File.expand_path("zsh-extra")
+    command = "ln -nfs #{zsh_directory} #{home}/.zsh-extra"
+    sh command 
   end 
 end 
 

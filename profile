@@ -8,17 +8,10 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
-# if running bash
-if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-    fi
-fi
+# if running zsh
+[ -f /bin/zsh ] && exec /bin/zsh -l
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
-export PATH=$HOME/local/node/bin:$PATH
-export NODE_PATH=$HOME/local/node:$HOME/local/node/lib/node_modules
