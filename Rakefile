@@ -12,7 +12,7 @@ namespace "install" do
       target = File.join(home, "#{file}")
       command = "ln -nfs #{File.expand_path file} #{target}"
       puts command 
-        `ln -nfs #{File.expand_path file} #{target}`
+      `ln -nfs #{File.expand_path file} #{target}`
     end 
   end 	
 
@@ -40,7 +40,7 @@ namespace "install" do
   task "vim" => ["vim:symlink", "vim:plugins", "vim:commandt"]
 
   task :rvm do
-   `bash < <(curl -s https://rvm.beginrescueend.com/install/rvm)` 
+    `bash < <(curl -s https://rvm.beginrescueend.com/install/rvm)` 
   end 
   task :irssi do
     home = File.expand_path('~') 
@@ -58,16 +58,17 @@ namespace "install" do
       target = File.join(home, ".#{file}")
       command = "ln -nfs #{File.expand_path file} #{target}"
       puts command 
-        `ln -nfs #{File.expand_path file} #{target}`
+      `ln -nfs #{File.expand_path file} #{target}`
     end
 
   end 
 end 
 
-desc "Uninstall dotfiles" 
-task :uninstall do
-  puts "Uninstall dotfiles"	
-  home = File.expand_path('~') 
+namespace :uninstall do
+  desc "Uninstall dotfiles" 
+  task :base do
+    puts "Uninstall dotfiles"	
+    home = File.expand_path('~') 
     Dir['*'].each do |file|
       target = File.join(home, ".#{file}")
       if File.symlink? target 
@@ -75,4 +76,21 @@ task :uninstall do
         sh command 
       end 
     end
+  end 
+
+  task :bin do
+    puts "Uninstall binaries"	
+    home = File.expand_path('~') 
+    Dir['bin/*'].each do |file|
+      target = File.join(home, "#{file}")
+      if File.symlink? target 
+        command = "rm  #{target}"
+        sh command 
+      end
+    end 
+  end 
 end 
+
+task "uninstall" => ["uninstall:base", "uninstall:bin"]
+
+
