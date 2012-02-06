@@ -4,8 +4,7 @@ desc "Installs vim to the current machine"
 namespace "install" do
   task :prepare do
     `mkdir -p ~/bin` 
-    `mkdir -p ~/.tmp` 
-  end	
+    `mkdir -p ~/.tmp` end	
   task :bin => "install:prepare" do
     puts "Installing binaries files"	
     home = File.expand_path('~') 
@@ -20,9 +19,7 @@ namespace "install" do
   namespace "vim" do
     task "symlink" do
       puts "installing vim"
-      # Creating vim swap files directory 
-      `mkdir -p ~/.vimswap/tmp` 
-      `ln -nfs ~/dotfiles/vim/vim ~/.vim`
+      # Creating vim swap files directory `mkdir -p ~/.vimswap/tmp` `ln -nfs ~/dotfiles/vim/vim ~/.vim`
       `ln -nfs ~/dotfiles/vim/vimrc ~/.vimrc`
       `ln -nfs ~/dotfiles/vim/gvimrc ~/.gvimrc`
       `ln -nfs ~/dotfiles/vim ~/.vim`
@@ -67,4 +64,15 @@ namespace "install" do
   end 
 end 
 
-
+desc "Uninstall dotfiles" 
+task :uninstall do
+  puts "Uninstall dotfiles"	
+  home = File.expand_path('~') 
+    Dir['*'].each do |file|
+      target = File.join(home, ".#{file}")
+      if File.symlink? target 
+        command = "rm  #{target}"
+        sh command 
+      end 
+    end
+end 
