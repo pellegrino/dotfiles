@@ -12,7 +12,7 @@ function add-alias() {
     return 1
   fi
 
-  echo "alias $name='$value'" >> ~/.zsh-extras/custom-aliases.zsh
+  echo "alias $name='$value'" >> $ZSH/custom-aliases.zsh
   eval "alias $name='$value'"
   alias $name
 
