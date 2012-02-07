@@ -3,6 +3,10 @@ ZSH=~/.zsh-extra
 # Heavily influenced by oh-my-zsh
 
 fpath=($ZSH/functions $ZSH/completions $fpath)
+# used plugins
+# TODO: make it autoload every plugin inside my plugins directory
+plugins=(git zshmarks custom-aliases)
+
 
 # Set ZSH_CUSTOM to the path where your custom config files
 # and plugins exists, or else we will use the default custom/
