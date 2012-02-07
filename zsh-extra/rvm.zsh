@@ -3,3 +3,5 @@ function rvm_prompt_info() {
   ruby_version=$(~/.rvm/bin/rvm-prompt 2> /dev/null) || return
   echo "($ruby_version)"
 }
+
+[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
