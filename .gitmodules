@@ -135,9 +135,6 @@
 [submodule "vim/plugin/gist-vim"]
 	path = plugin/gist-vim
 	url = https://github.com/mattn/gist-vim.git
-[submodule "vim/bundle/l9"]
-	path = vim/bundle/l9
-	url = git://github.com/vim-scripts/L9.git
 [submodule "vim/bundle/vimrooter"]
 	path = vim/bundle/vimrooter
 	url = git://github.com/airblade/vim-rooter.git
