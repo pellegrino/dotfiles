@@ -11,7 +11,6 @@ function add-alias() {
     echo "Invalid alias value, please provide a value for your alias."
     return 1
   fi
-  echo "PORRA"
 
   echo "alias $name='$value'" >> ~/.zsh-extras/custom-aliases.zsh
   eval "alias $name='$value'"

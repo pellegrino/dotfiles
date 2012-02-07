@@ -5,7 +5,7 @@ ZSH=~/.zsh-extra
 fpath=($ZSH/functions $ZSH/completions $fpath)
 # used plugins
 # TODO: make it autoload every plugin inside my plugins directory
-plugins=(git zshmarks custom-aliases)
+plugins=(git zshmarks customaliases)
 
 
 # Set ZSH_CUSTOM to the path where your custom config files
