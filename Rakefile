@@ -60,7 +60,7 @@ namespace "install" do
     home = File.expand_path('~') 
 
     Dir['*'].each do |file|
-      next if file =~ /Rakefile/ or File.directory? file 
+      next if file =~ /Rakefile/ or /README.md/ or File.directory? file 
       target = File.join(home, ".#{file}")
       command = "ln -nfs #{File.expand_path file} #{target}"
       puts command 
@@ -73,8 +73,7 @@ namespace "install" do
     puts "Installing zsh" 
     home = File.expand_path('~') 
     zsh_directory = File.expand_path("zsh-extra")
-    command = "ln -nfs #{zsh_directory} #{home}/.zsh-extra"
-    sh command 
+    sh "ln -nfs #{zsh_directory} #{home}/.zsh-extra"
   end 
 end 
 
@@ -86,8 +85,7 @@ namespace :uninstall do
     Dir['*'].each do |file|
       target = File.join(home, ".#{file}")
       if File.symlink? target 
-        command = "rm  #{target}"
-        sh command 
+        sh "rm  #{target}"
       end 
     end
   end 
@@ -98,8 +96,7 @@ namespace :uninstall do
     Dir['bin/*'].each do |file|
       target = File.join(home, "#{file}")
       if File.symlink? target 
-        command = "rm  #{target}"
-        sh command 
+        sh "rm  #{target}"
       end
     end 
   end 
