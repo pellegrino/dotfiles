@@ -1,4 +1,6 @@
 task :install => [ "install:zsh", "install:config_files", "install:vim", "install:bin" ] 
+DOTFILES_DIR = "~/dotfiles"
+VIM_DIR      = File.join DOTFILES_DIR , "vim"
 
 desc "Installs vim to the current machine"
 namespace "install" do
@@ -19,20 +21,24 @@ namespace "install" do
   namespace "vim" do
     task "symlink" do
       puts "installing vim"
-      # Creating vim swap files directory `mkdir -p ~/.vimswap/tmp` `ln -nfs ~/dotfiles/vim/vim ~/.vim`
-      `ln -nfs ~/dotfiles/vim/vimrc ~/.vimrc`
-      `ln -nfs ~/dotfiles/vim/gvimrc ~/.gvimrc`
-      `ln -nfs ~/dotfiles/vim ~/.vim`
+       #Creating vim swap files directory 
+      sh "mkdir -p ~/.vimswap/tmp"
+      sh "ln -nfs #{VIM_DIR}/vim ~/.vim"
+      sh "ln -nfs #{VIM_DIR}/vimrc ~/.vimrc"
+      sh "ln -nfs #{VIM_DIR}/gvimrc ~/.gvimrc"
+
+      sh "ln -nfs #{DOTFILES_DIR}/vim ~/.vim"
     end 
 
     task "plugins" do
       puts "Fetching vim plugins" 	
-      `git submodule update --init` # vim plugins used as submodules 
+      # vim plugins are used as submodules 
+      sh "git submodule update --init"
     end 
 
     task "commandt" => "plugins" do
       puts "Attempting to build command-t" 
-      `cd ~/dotfiles/vim/bundle/command-t; rake make`
+      sh "cd #{VIM_DIR}/bundle/command-t; rake make"
     end 
 
   end 
