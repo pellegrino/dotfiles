@@ -17,6 +17,12 @@ TODO: Point directions to install each one of these dependencies
  * Install vim 
  * Install zsh 
 
+
+#### Zsh
+
+You may want to set zsh as your default shell using the following command
+     chsh -s /bin/zsh
+
 #### Irssi
  * Create the service daemon for listening to notifications
 
