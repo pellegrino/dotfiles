@@ -2,6 +2,11 @@ ZSH=~/.zsh-extra
 # Load all of the config files in ~/oh-my-zsh that end in .zsh
 # Heavily influenced by oh-my-zsh
 
+# Adding local bin to path if it's available 
+if [[ -d $HOME/bin ]]  then
+  PATH=$HOME/bin:$PATH
+fi
+
 for config_file ($ZSH/*.zsh) source $config_file
   
 # used plugins

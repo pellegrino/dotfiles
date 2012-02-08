@@ -24,11 +24,17 @@ You may want to set zsh as your default shell using the following command
      chsh -s /bin/zsh
 
 #### Irssi
- * Create the service daemon for listening to notifications
+
+This requires some additional packages. 
+
+  * Autossh - Used to estabilish a persistent connection with my vps used to create IRC desktop notifications 
+  * Socat 
+  * Create the service daemon for listening to notifications
+
 
 #### Vim GIST 
 
-You have to export in your .bashrc file both variables GITHUB\_USER and GITHUB\_TOKEN.
+You have to export in your .zshrc (check zsh-extra/github\_keys.zsh.example) file both variables GITHUB\_USER and GITHUB\_TOKEN.
 Since those are sensitive data, its not a good idea to share this information publicly 
 
 ### Mac OSX
@@ -37,7 +43,4 @@ Since those are sensitive data, its not a good idea to share this information pu
  * Install Git (brew install git bash-completion) 
  * Install RVM
 
-### Windows
-
-Sorry i don't use windows for quite a long now, so i can't give any pointers. You're by yourself.
 
