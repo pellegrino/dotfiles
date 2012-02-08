@@ -91,3 +91,14 @@ nmap <silent> <C-Right> :wincmd l<CR>
 
 " " Markdown .md automatic set syntax 
 au BufNewFile,BufRead *.md set syntax=markdown
+
+
+" " Removing arrow keys navigations so i can turn myself into a vim ninja
+
+noremap <Up> <nop>
+noremap <Down> <nop>
+noremap <Left> <nop>
+noremap <Right> <nop>
+
+"" No remapping ESC for the same reason above
+inoremap jj <Esc>
