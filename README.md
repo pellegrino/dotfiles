@@ -14,8 +14,11 @@ TODO: Point directions to install each one of these dependencies
  * Install git
  * Install curl (for rvm)
  * Install ruby 
- * Install vim 
+ * Install vim-nox
  * Install zsh 
+
+In a single command: 
+         sudo apt-get install git curl ruby rake zsh vim-nox build-essential 
 
 
 #### Zsh
