@@ -9,16 +9,16 @@ Given that this is a new blankslate machine, some steps are required to make it 
   * Zsh
 
 ### Ubuntu
-TODO: Point directions to install each one of these dependencies 
 
  * Install git
  * Install curl (for rvm)
  * Install ruby 
  * Install vim-nox
  * Install zsh 
+ * Install tmux 
 
 In a single command: 
-         sudo apt-get install git curl ruby rake zsh vim-nox build-essential 
+         sudo apt-get install git curl ruby rake zsh vim-nox build-essential tmux
 
 
 #### Zsh
@@ -45,5 +45,3 @@ Since those are sensitive data, its not a good idea to share this information pu
  * Install XCode 
  * Install Git (brew install git bash-completion) 
  * Install RVM
-
-
