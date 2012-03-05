@@ -7,6 +7,11 @@ if [[ -d $HOME/bin ]]  then
   PATH=$HOME/bin:$PATH
 fi
 
+# Adding local/bin to path if it's available 
+if [[ -d $HOME/local/bin ]]  then
+  PATH=$HOME/local/bin:$PATH
+fi
+
 for config_file ($ZSH/*.zsh) source $config_file
   
 # used plugins
@@ -39,3 +44,5 @@ for plugin ($plugins); do
     source $ZSH/plugins/$plugin/$plugin.plugin.zsh
   fi
 done
+
+export EDITOR=vim
