@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+if tmux list-sessions | grep "\.irssi" > /dev/null
+then # running
+tmux attach -t irssi
+else # not running
+tmux new -s irssi irssi
+fi
