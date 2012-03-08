@@ -19,6 +19,6 @@ socat -u tcp4-listen:12000,reuseaddr,fork,bind=127.0.0.1 exec:$notify &
 #autossh $host -p $port -R 12000:localhost:12000 -t 'screen -r -D'
 
 # Attaches to 'irc' screen session
-autossh -X $host -p $port -R 12000:localhost:12000 -t 'tmux attach -t irssi'
+autossh -X $host -p $port -R 12000:localhost:12000 -t 'screen -raAD irc'
 
 kill %1
