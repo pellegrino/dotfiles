@@ -19,8 +19,6 @@
 
 [github]
 	user = pellegrino
-  name = pellegrino
+	name = pellegrino
 
-[pivotal]
-	api-token = 341a419d6a19de4ac0586fbb9525c72e
-	full-name = Vitor Pellegrino
+
