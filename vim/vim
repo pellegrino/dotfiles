@@ -102,3 +102,6 @@ noremap <Right> <nop>
 
 "" No remapping ESC for the same reason above
 inoremap jj <Esc>
+
+
+map <Esc>[B <Down>
