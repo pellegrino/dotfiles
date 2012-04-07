@@ -46,3 +46,4 @@ for plugin ($plugins); do
 done
 
 export EDITOR=vim
+fpath=(~/.zsh/Completion $fpath)
