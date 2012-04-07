@@ -91,6 +91,9 @@ nmap <silent> <C-Right> :wincmd l<CR>
 
 " " Markdown .md automatic set syntax 
 au BufNewFile,BufRead *.md set syntax=markdown
+" " Handlebars automatic syntax 
+au BufNewFile,BufRead *.hbs set syntax=handlebars
+
 
 
 " " Removing arrow keys navigations so i can turn myself into a vim ninja
