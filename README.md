@@ -18,11 +18,13 @@ Given that this is a new blankslate machine, some steps are required to make it 
  * Install tmux 
 
 In a single command: 
+
          sudo apt-get install git curl ruby rake zsh vim-nox build-essential tmux
 
 #### Tmuxinator
 
 There is also [tmuxinator](https://github.com/aziz/tmuxinator) configured to use.
+
         # don't forget to run this at your default rvm ruby
         gem install tmuxinator
 
