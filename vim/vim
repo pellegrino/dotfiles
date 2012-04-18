@@ -55,6 +55,7 @@ map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
 map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
 map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
 map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
+map <leader>gd :CommandTFlush<cr>\|:CommandT db/migrate<cr>
 map <leader>gp :CommandTFlush<cr>\|:CommandT public<cr>
 map <leader>gs :CommandTFlush<cr>\|:CommandT public/stylesheets/sass<cr>
 map <leader>gf :CommandTFlush<cr>\|:CommandT features<cr>
@@ -66,7 +67,7 @@ nnoremap <leader><leader> <c-^>
 
 
 " " rspec 
-nmap <leader>r :w! !rspec spec/<CR>
+nmap <leader>r : !rspec spec/<CR>
 
 "" Clipboard integration
 set clipboard=unnamed
@@ -94,17 +95,24 @@ au BufNewFile,BufRead *.md set syntax=markdown
 " " Handlebars automatic syntax 
 au BufNewFile,BufRead *.hbs set syntax=handlebars
 
-
-
 " " Removing arrow keys navigations so i can turn myself into a vim ninja
+" " Using control arrow keys to full screen each buffer at time
+map <c-Up> <c-w>k<c-w>_<c-w><Bar>
+map <c-Down> <c-w>j<c-w>_<c-w><Bar>
+map <c-Left> <c-w>h<c-w>_<c-w><Bar>
+map <c-Right> <c-w>l<c-w>_<c-w><Bar>
 
-noremap <Up> <nop>
-noremap <Down> <nop>
-noremap <Left> <nop>
-noremap <Right> <nop>
+" " arrow keys for window resizing
+map <Up> <c-w>+
+map <Down> <c-w>-
+map <Left> <c-w><
+map <Right> <c-w>>
+
+" " Vim buffers resizing
 
 "" No remapping ESC for the same reason above
 inoremap jj <Esc>
 
 
-map <Esc>[B <Down>
+"" Giving my arrow keys back while on tmux 
+  map <Esc>[B <Down>
