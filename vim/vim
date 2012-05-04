@@ -68,7 +68,7 @@ nnoremap <leader><leader> <c-^>
 
 " " rspec 
 nmap <leader>r : ! rake spec:unit/<CR>
-nmap <leader>r : ! rake spec:acceptance/<CR>
+nmap <leader>y : ! HEADLESS=true rake spec:acceptance/<CR>
 
 "" Clipboard integration
 set clipboard=unnamed
