@@ -47,3 +47,5 @@ done
 
 export EDITOR=vim
 fpath=(~/.zsh/Completion $fpath)
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
