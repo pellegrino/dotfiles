@@ -19,7 +19,7 @@ Given that this is a new blankslate machine, some steps are required to make it 
 
 In a single command: 
 
-         sudo apt-get install git curl ruby rake zsh vim-nox build-essential tmux
+         sudo apt-get install git curl ruby rake zsh vim-nox build-essential tmux autossh socat
 
 #### Tmuxinator
 

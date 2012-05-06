@@ -1,4 +1,4 @@
-task :install => [ "install:zsh", "install:config_files", "install:vim", "install:bin" ] 
+task :install => [ "install:zsh", "install:config_files", "install:vim", "install:bin", "install:rvm" ] 
 DOTFILES_DIR = "~/dotfiles"
 VIM_DIR      = File.join DOTFILES_DIR , "vim"
 
@@ -74,6 +74,13 @@ namespace "install" do
     home = File.expand_path('~') 
     zsh_directory = File.expand_path("zsh-extra")
     sh "ln -nfs #{zsh_directory} #{home}/.zsh-extra"
+  end 
+
+
+  desc "Installs rvm from get.rvm.io" 
+  task :rvm do
+    puts "Installing rvm from get.rvm.io"
+    sh "curl -L get.rvm.io | bash -s stable"
   end 
 end 
 
