@@ -75,6 +75,14 @@ set clipboard=unnamed
 
 " "Coffeescript two space indentation
 au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+" " Coffeescript and jade syntax
+au BufNewFile,BufRead *.coffee set syntax=coffee
+au BufNewFile,BufRead *.jade set syntax=jade
+
+" " vimrc syntax
+au BufNewFile,BufRead vim* set syntax=vim
+
+
 set shell=bash
 
 
@@ -113,7 +121,6 @@ map <Right> <c-w>>
 
 "" No remapping ESC for the same reason above
 inoremap jj <Esc>
-
 
 "" Giving my arrow keys back while on tmux 
   map <Esc>[B <Down>
