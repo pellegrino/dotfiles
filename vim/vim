@@ -79,6 +79,8 @@ au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 au BufNewFile,BufRead *.coffee set syntax=coffee
 au BufNewFile,BufRead *.jade set syntax=jade
 
+
+au BufRead,BufNewFile *.rabl setf ruby " rabl
 " " vimrc syntax
 au BufNewFile,BufRead vim* set syntax=vim
 
