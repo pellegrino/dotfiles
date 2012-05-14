@@ -16,10 +16,11 @@ Given that this is a new blankslate machine, some steps are required to make it 
  * Install vim-nox
  * Install zsh 
  * Install tmux 
+ * Install xclip  
 
 In a single command: 
 
-         sudo apt-get install git curl ruby rake zsh vim-nox build-essential tmux autossh socat
+         sudo apt-get install git curl ruby rake zsh vim-nox build-essential tmux autossh socat xclip 
 
 #### Tmuxinator
 
@@ -40,7 +41,6 @@ This requires some additional packages.
   * Autossh - Used to estabilish a persistent connection with my vps used to create IRC desktop notifications 
   * Socat 
   * Create the service daemon for listening to notifications
-
 
 #### Vim GIST 
 
