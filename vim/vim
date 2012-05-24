@@ -90,7 +90,7 @@ set shell=bash
 
 " " Default colorscheme
 "
-colorscheme torte
+colorscheme topfunky-light
 
 
 " " Tab navigation
