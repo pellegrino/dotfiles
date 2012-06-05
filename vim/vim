@@ -65,6 +65,7 @@ map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
 
 nnoremap <leader><leader> <c-^>
 
+set wildignore+=*.o,*.obj,.git,node_modules
 
 " " rspec 
 nmap <leader>r : ! rake spec:unit<CR>
@@ -90,7 +91,7 @@ set shell=bash
 
 " " Default colorscheme
 "
-colorscheme topfunky-light
+colorscheme torte
 
 
 " " Tab navigation
