@@ -12,6 +12,11 @@ if [[ -d $HOME/local/bin ]]  then
   PATH=$HOME/local/bin:$PATH
 fi
 
+# Adding local/bin to path if it's available 
+if [[ -d /usr/local/sbin ]]  then
+  PATH=/usr/local/sbin:$PATH
+fi
+
 for config_file ($ZSH/*.zsh) source $config_file
   
 # used plugins
