@@ -1,24 +1,28 @@
-ZSH=~/.zsh-extra 
+ZSH=~/.zsh-extra
 # Load all of the config files in ~/oh-my-zsh that end in .zsh
 # Heavily influenced by oh-my-zsh
 
-# Adding local bin to path if it's available 
-if [[ -d $HOME/bin ]]  then
-  PATH=$HOME/bin:$PATH
-fi
-
-# Adding local/bin to path if it's available 
+# Adding local/bin to path if it's available
 if [[ -d $HOME/local/bin ]]  then
-  PATH=$HOME/local/bin:$PATH
+  PATH=$PATH:$HOME/local/bin
 fi
 
-# Adding local/bin to path if it's available 
+# Adding /usr/local/bin to path if it's available
+if [[ -d /usr/local/bin ]]  then
+  PATH=/usr/local/bin:$PATH
+fi
+
+# Adding local/bin to path if it's available
 if [[ -d /usr/local/sbin ]]  then
-  PATH=/usr/local/sbin:$PATH
+  PATH=$PATH:/usr/local/sbin
+fi
+# Adding local bin to path if it's available
+if [[ -d $HOME/bin ]]  then
+  PATH=$PATH:$HOME/bin
 fi
 
 for config_file ($ZSH/*.zsh) source $config_file
-  
+
 # used plugins
 # TODO: make it autoload every plugin inside my plugins directory
 plugins=(git zshmarks customaliases)
