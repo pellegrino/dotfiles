@@ -1,4 +1,4 @@
-set      nocompatible 
+set      nocompatible
 filetype on
 filetype off
 set backspace=indent,eol,start
@@ -6,11 +6,11 @@ set history=1000
 set incsearch   "find the next match as we type the search
 set hlsearch    "hilight searches by default
 set showbreak=...
-set wrap linebreak nolist 
-syntax   enable               " Turn on syntax highlighting 
-syntax   on 
+set wrap linebreak nolist
+syntax   enable               " Turn on syntax highlighting
+syntax   on
 filetype plugin on     " Turn on file type detection
-filetype indent on 
+filetype indent on
 
 "indent settings
 set shiftwidth=2
@@ -18,19 +18,19 @@ set softtabstop=2
 set expandtab
 set autoindent
 
-set	 showmode  	      "Display the mode im in 
-set  showcmd	      "Display incomplete commands 
-set  hidden               "Handle multiple buffers better 
-set  ignorecase           "Case-insensitive searching 
-set  smartcase            "But case sensitive if expression contains capital letter 
+set	 showmode  	      "Display the mode im in
+set  showcmd	      "Display incomplete commands
+set  hidden               "Handle multiple buffers better
+set  ignorecase           "Case-insensitive searching
+set  smartcase            "But case sensitive if expression contains capital letter
 
-set	 number  	      "Show line numbers 
-set  ruler     	      "Show cursor position 
-set  visualbell 	      "Stop beeping when you are being noob at vim 
+set	 number  	      "Show line numbers
+set  ruler     	      "Show cursor position
+set  visualbell 	      "Stop beeping when you are being noob at vim
 set	 wrap 		      "Turn on line wrapping
-set  nowritebackup        " 
+set  nowritebackup        "
 set  nobackup             "Don make a backup before overwritting a file
-set  directory=$HOME/.vimswap/tmp 
+set  directory=$HOME/.vimswap/tmp
 
 "Pathogen.vim"
 silent! call pathogen#runtime_append_all_bundles()
@@ -39,17 +39,17 @@ let g:ackprg="ack -H --nocolor --nogroup --column"
 
 set tabstop=2                    " Global tab width.
 set shiftwidth=2                 " And again, related.
-set grepprg=ack                  " Using ack instead of grep 
+set grepprg=ack                  " Using ack instead of grep
 set laststatus=2                  " Show the status line all the time
 " Automatic fold settings for specific files. Uncomment to use.
-" autocmd FileType ruby setlocal 
+" autocmd FileType ruby setlocal
 " autocmd FileType css  setlocal shiftwidth=2 tabstop=2
 "
 " " For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
 autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
 
-" " Command-t  
+" " Command-t
 map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
 map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
 map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
@@ -67,7 +67,7 @@ nnoremap <leader><leader> <c-^>
 
 set wildignore+=*.o,*.obj,.git,node_modules
 
-" " rspec 
+" " rspec
 nmap <leader>r : ! rake spec:unit<CR>
 nmap <leader>y : ! HEADLESS=true rake spec:acceptance<CR>
 
@@ -79,6 +79,9 @@ au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 " " Coffeescript and jade syntax
 au BufNewFile,BufRead *.coffee set syntax=coffee
 au BufNewFile,BufRead *.jade set syntax=jade
+
+" " Clojure
+au BufNewFile,BufRead *.clj set syntax=clojure
 
 
 au BufRead,BufNewFile *.rabl setf ruby " rabl
@@ -101,10 +104,13 @@ nmap <silent> <C-Down> :wincmd j<CR>
 nmap <silent> <C-Left> :wincmd h<CR>
 nmap <silent> <C-Right> :wincmd l<CR>
 
+" " Interpret Rackup files as ruby
 
-" " Markdown .md automatic set syntax 
+au BufNewFile,BufRead *.ru set syntax=ruby
+
+" " Markdown .md automatic set syntax
 au BufNewFile,BufRead *.md set syntax=markdown
-" " Handlebars automatic syntax 
+" " Handlebars automatic syntax
 au BufNewFile,BufRead *.hbs set syntax=handlebars
 
 " " Removing arrow keys navigations so i can turn myself into a vim ninja
@@ -128,9 +134,13 @@ autocmd BufWritePre * :%s/\s\+$//e
 "" No remapping ESC for the same reason above
 inoremap jj <Esc>
 
-"" Giving my arrow keys back while on tmux 
+"" Giving my arrow keys back while on tmux
   map <Esc>[B <Down>
 
 "" Copy and paste using the system xclip (linux)
 vmap <C-c> y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
 nmap <C-t> :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p
+
+" " vim clojure
+let g:vimclojure#HighlightBuiltins = 1
+let g:vimclojure#ParenRainbow = 1
