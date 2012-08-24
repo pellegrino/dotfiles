@@ -21,4 +21,8 @@ gems
 .vagrant
 capybara*.html
 tmp/restart.txt
-
+emacs.d/.smex-items
+emacs.d/backups/
+emacs.d/elpa/
+emacs.d/places
+*.*~

@@ -1,7 +1,9 @@
-task :install => [ "install:zsh", "install:config_files", "install:vim", "install:bin", "install:lib", "install:rvm" ]
+task :install => [ "install:zsh", "install:config_files", "install:vim",
+                   "install:bin", "install:lib", "install:rvm", "install:emacs" ]
 
 DOTFILES_DIR = "~/dotfiles"
 VIM_DIR      = File.join DOTFILES_DIR , "vim"
+EMACS_DIR    = File.join DOTFILES_DIR , "emacs.d"
 
 desc "Installs vim to the current machine"
 namespace "install" do
@@ -31,6 +33,7 @@ namespace "install" do
     end
   end
 
+
   namespace "vim" do
     task "symlink" do
       puts "installing vim"
@@ -57,6 +60,10 @@ namespace "install" do
   end
   # Install vim
   task "vim" => ["vim:symlink", "vim:plugins", "vim:commandt"]
+
+  task "emacs"  do
+    sh "ln -nfs #{EMACS_DIR} ~/.emacs.d"
+  end
 
   task :rvm do
     `bash < <(curl -s https://rvm.beginrescueend.com/install/rvm)`

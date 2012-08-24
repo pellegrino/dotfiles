@@ -21,6 +21,11 @@ if [[ -d $HOME/bin ]]  then
   PATH=$PATH:$HOME/bin
 fi
 
+# Adding local bin to path if it's available
+if [[ -f $HOME/.lib/vimclojure/server-2.3.5.jar ]]  then
+  export VIMCLOJURE_SERVER_JAR="$HOME/.lib/vimclojure/server-2.3.5.jar"
+fi
+
 for config_file ($ZSH/*.zsh) source $config_file
 
 # used plugins
