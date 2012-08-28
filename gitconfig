@@ -20,5 +20,5 @@
 [github]
 	user = pellegrino
 	name = pellegrino
-
-
+[push]
+	default = current
