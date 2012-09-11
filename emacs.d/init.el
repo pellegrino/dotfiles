@@ -10,6 +10,13 @@
 
 (package-initialize)
 
+(global-set-key [right] 'windmove-right)
+(global-set-key [left] 'windmove-left)
+(global-set-key [up] 'windmove-up)
+(global-set-key [down] 'windmove-down)
+
+
+
 (when (not package-archive-contents)
   (package-refresh-contents))
 
@@ -25,3 +32,4 @@
       `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
                 `((".*" ,temporary-file-directory t)))
+
