@@ -32,9 +32,12 @@
       `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
-
+;; Auto enabling elixir-mode
+(add-to-list 'auto-mode-alist '("\\.elixir\\'" . elixir-mode))
 (setq auto-mode-alist (cons '("\\.erl$" . erlang-mode) auto-mode-alist))
 
+;; Enabling clipboard between OS and emacs
+(setq x-select-enable-clipboard t)
 
 ;; Remove trailing whitespaces automatically
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
