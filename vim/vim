@@ -80,6 +80,10 @@ au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 au BufNewFile,BufRead *.coffee set syntax=coffee
 au BufNewFile,BufRead *.jade set syntax=jade
 
+" " Elixir
+au BufNewFile,BufRead *.elixir set syntax=elixir
+au BufNewFile,BufRead *.exs set syntax=elixir
+au BufNewFile,BufRead *.ex set syntax=elixir
 
 " " Scala
 au BufNewFile,BufRead *.scala set syntax=scala
